@@ -1,16 +1,22 @@
-import express, {Application, Request, Response} from 'express';
+import express, {Application} from 'express';
 import dotenv from 'dotenv';
+import cors from 'cors';
+import  connectDB  from './config/database';
+import transactionRoutes from './routes/transaction.routes';
 
 dotenv.config();
 
 const app: Application = express();
 
-// Middleware
-app.use(express.json());
+// // Middleware
+// app.use(cors());
+// app.use(express.json());
 
-// Routes
-app.get('/', (req: Request, res: Response) =>{
-    res.status(200).send("API is running!")
-})
+// // Database connection
+// connectDB();
+
+
+// // Routes
+// app.use('/api/transactions', transactionRoutes);
 
 export default app;

@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { transactionService } from '../services/transaction.service';
+import { Transaction } from '../models/transaction.model';
 import { TransactionQueryParams } from '../types/transaction.types';
 
 export class TransactionController {
@@ -25,6 +26,20 @@ export class TransactionController {
       res.json(transaction);
     } catch (error) {
       res.status(500).json({ error: 'Failed to retrieve transaction' });
+    }
+  }
+
+  async updateTransaction(req: Request, res: Response) {
+    try {
+      const { transactionId } = req.params;
+      const updatedTransaction = await Transaction.findOneAndUpdate(
+        { transactionId },
+        req.body,
+        { new: true }
+      );
+      res.json(updatedTransaction);
+    } catch (error) {
+      res.status(500).json({ error: 'Failed to update transaction' });
     }
   }
 
