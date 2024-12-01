@@ -11,7 +11,7 @@ export function CronJobControl({ onStatusChange }: CronJobControlProps) {
 
   const fetchStatus = async () => {
     try {
-      const response = await axios.get(`${process.env.REACT_APP_URL}/api/cron/status`);
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/cron/status`);
       setIsRunning(response.data.isRunning);
     } catch (error) {
       console.error('Failed to fetch CRON job status:', error);
@@ -28,7 +28,7 @@ export function CronJobControl({ onStatusChange }: CronJobControlProps) {
     setLoading(true);
     try {
       const endpoint = isRunning ? '/api/cron/stop' : '/api/cron/start';
-      await axios.post(`${process.env.REACT_APP_URL}${endpoint}`);
+      await axios.post(`${process.env.REACT_APP_API_URL}${endpoint}`);
       setIsRunning(!isRunning);
       onStatusChange();
     } catch (error) {

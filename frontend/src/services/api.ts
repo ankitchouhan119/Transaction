@@ -14,7 +14,7 @@ const api = axios.create({
 export const updateTransaction = async (transactionId: string, data: Record<string, any>) => {
   try {
     // Making a PUT request to update the transaction
-    const response = await axios.put(`${API_BASE_URL}/transactions/${transactionId}`, data);
+    const response = await axios.put(`${API_BASE_URL}/api/transactions/${transactionId}`, data);
     return response.data; // Return the updated transaction data
   } catch (error) {
     console.error('Failed to update transaction:', error);
@@ -25,7 +25,7 @@ export const updateTransaction = async (transactionId: string, data: Record<stri
 export const transactionApi = {
   fetchTransactions: async (params = {}) => {
     try {
-      const response = await api.get('/transactions', { params });
+      const response = await api.get('/api/transactions', { params });
       return response.data;
     } catch (error) {
       console.error('Failed to fetch transactions:', error);
@@ -34,12 +34,12 @@ export const transactionApi = {
   },
 
   createTransaction: async (data: Record<string, any>) => {
-    return await axios.post(`${API_BASE_URL}/transactions`, data);
+    return await axios.post(`${API_BASE_URL}/api/transactions`, data);
   },
 
   getTransactionById: async (id: string) => {
     try {
-      const response = await api.get(`/transactions/${id}`);
+      const response = await api.get(`/api/transactions/${id}`);
       return response.data;
     } catch (error) {
       console.error('Failed to get transaction:', error);
@@ -51,7 +51,7 @@ export const transactionApi = {
   generateReport: async (startDate: string, endDate: string) => {
       try {
         const response = await axios.get(
-          `${API_BASE_URL}/transactions/report`,
+          `${API_BASE_URL}/api/transactions/report`,
           {
             params: { startDate, endDate, format: 'csv' },
             responseType: 'blob', // Important for file downloads
