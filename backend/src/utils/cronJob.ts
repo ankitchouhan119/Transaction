@@ -58,7 +58,7 @@ class TransactionGenerator {
         const randomTransaction = {
             userId : `user_${Math.floor(Math.random() * 1000)}`,
             amount : parseFloat((Math.random() * 1000).toFixed(2)),
-            description: `${descriptions[(Math.random() * descriptions.length)]}`,
+            description: `${descriptions[Math.floor(Math.random() * descriptions.length)]}`,
             country: countries[Math.floor(Math.random() * countries.length)],
             tags: [tags[Math.floor(Math.random() * tags.length)]],
             status : 'completed' as const

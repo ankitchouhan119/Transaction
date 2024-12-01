@@ -44,7 +44,7 @@ export class TransactionService {
         if (startDate || endDate) {
             query.timestamp = {};
             if (startDate) query.timestamp.$gte = new Date(startDate);
-            if (endDate) query.timestamp.lte = new Date(endDate);
+            if (endDate) query.timestamp.$lte = new Date(endDate);
         }
 
         const sort: any = {};

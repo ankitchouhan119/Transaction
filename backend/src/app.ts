@@ -8,15 +8,4 @@ dotenv.config();
 
 const app: Application = express();
 
-// // Middleware
-// app.use(cors());
-// app.use(express.json());
-
-// // Database connection
-// connectDB();
-
-
-// // Routes
-// app.use('/api/transactions', transactionRoutes);
-
 export default app;
