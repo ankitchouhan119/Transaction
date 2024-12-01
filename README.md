@@ -1,6 +1,10 @@
 # Flagright-Transactions
 
-![image](https://github.com/KingSlayr/Flagright-Transactions/assets/55028717/1bf45e97-1a5c-4c2e-b87c-6664d108ed8b)
+![image](https://github.com/user-attachments/assets/73db6b0c-99c4-47dc-aeec-dcc426907604)
+
+![image](https://github.com/user-attachments/assets/43640417-fa14-4c19-b1b4-4bd218a19b1d)
+
+![image](https://github.com/user-attachments/assets/82c08d7f-8f8a-4d6f-9bfb-4911ae9bd484)
 
 ## Project Overview
 Flagright-Transactions is a full-stack application designed to manage transactions. It provides a set of API endpoints that enable users to create, retrieve, search, and report on transactions. Additionally, it includes the ability to control an automated transaction creation process via a CRON job.
