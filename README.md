@@ -1,4 +1,4 @@
-# Flagright-Transactions
+# Transactions - API
 
 ![image](https://github.com/user-attachments/assets/73db6b0c-99c4-47dc-aeec-dcc426907604)
 
@@ -7,12 +7,12 @@
 ![image](https://github.com/user-attachments/assets/82c08d7f-8f8a-4d6f-9bfb-4911ae9bd484)
 
 ## Project Overview
-Flagright-Transactions is a full-stack application designed to manage transactions. It provides a set of API endpoints that enable users to create, retrieve, search, and report on transactions. Additionally, it includes the ability to control an automated transaction creation process via a CRON job.
+Transactions - API is a full-stack application designed to manage transactions. It provides a set of API endpoints that enable users to create, retrieve, search, and report on transactions. Additionally, it includes the ability to control an automated transaction creation process via a CRON job.
 
 ## API Endpoints
 
 ### 1. Add a New Transaction
-- **URL:** `POST /transactions`
+- **Endpoint:** `POST /transactions`
 - **Purpose:** This endpoint allows users to create a new transaction with specific details.
 - **Request Method:** `POST`
 - **Request Body:**
@@ -34,7 +34,7 @@ Flagright-Transactions is a full-stack application designed to manage transactio
 ---
 
 ### 2. Get Transaction Details by ID
-- **URL:** `GET /transactions/{transactionId}`
+- **Endpoint:** `GET /transactions/{transactionId}`
 - **Purpose:** Retrieves detailed information about a transaction based on the given ID.
 - **Request Method:** `GET`
 - **Request Parameter:** `{transactionId}` (String, required): The unique ID of the transaction.
@@ -47,7 +47,7 @@ Flagright-Transactions is a full-stack application designed to manage transactio
 ---
 
 ### 3. Search Transactions
-- **URL:** `GET /transactions/search`
+- **Endpoint:** `GET /transactions/search`
 - **Purpose:** Allows searching for transactions based on certain criteria.
 - **Request Method:** `GET`
 - **Query Parameters:**
@@ -68,7 +68,7 @@ Flagright-Transactions is a full-stack application designed to manage transactio
 ---
 
 ### 4. Generate Transaction Reports
-- **URL:** `GET /reports`
+- **Endpoint:** `GET /reports`
 - **Purpose:** Allows generating transaction reports based on specific parameters.
 - **Request Method:** `GET`
 - **Query Parameters:**
@@ -84,7 +84,7 @@ Flagright-Transactions is a full-stack application designed to manage transactio
 ---
 
 ### 5. Manage CRON Job (Start/Stop)
-- **URLs:**
+- **Endpoints:**
     - `POST /cronjob/start` - Starts the automated transaction generation CRON job.
     - `POST /cronjob/stop` - Stops the ongoing transaction generation CRON job.
 - **Purpose:** These endpoints control the automated process of generating transactions.
@@ -97,11 +97,15 @@ Flagright-Transactions is a full-stack application designed to manage transactio
 ---
 
 ## Running the Project Locally
+1. Clone the repository:
 
+    ```bash
+    git clone https://github.com/your-repository/backend.git
+    cd backend
+    ```
 ### Backend Setup
 1. Clone the backend repository:
     ```bash
-    git clone https://github.com/your-repository/backend.git
     cd backend
     ```
 2. Install dependencies:
@@ -109,20 +113,24 @@ Flagright-Transactions is a full-stack application designed to manage transactio
     npm install
     ```
 3. Set up environment variables:
-    - Copy the `.env.example` file to `.env` and update it with your MongoDB URI and other environment-specific settings.
+    
     ```bash
-    cp .env.example .env
+    PORT=7000
+
+    MONGO_URI = "MONGO_URI"
+
+    FRONTEND_URL=http://localhost:3000
     ```
 4. Start the backend server:
     ```bash
-    npm start
+    npm run dev
     ```
     The backend will be running on `http://localhost:7000`.
 
 ### Frontend Setup
 1. Clone the frontend repository:
+
     ```bash
-    git clone https://github.com/your-repository/frontend.git
     cd frontend
     ```
 2. Install dependencies:
@@ -130,9 +138,10 @@ Flagright-Transactions is a full-stack application designed to manage transactio
     npm install
     ```
 3. Set up environment variables:
-    - Copy the `.env.example` file to `.env` and update it with the backend API URL.
     ```bash
-    cp .env.example .env
+    REACT_APP_API_URL=http://localhost:7000/api
+
+    REACT_APP_URL = http://localhost:7000
     ```
 4. Start the frontend development server:
     ```bash
