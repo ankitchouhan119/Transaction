@@ -2,7 +2,6 @@ import app from './app';
 import connectDB from './config/database';
 import express from 'express';
 import cors from 'cors';
-import dotenv from 'dotenv';
 import { transactionGenerator } from './utils/cronJob';
 import transactionRoutes from './routes/transaction.routes';
 
@@ -11,14 +10,11 @@ const PORT = process.env.PORT || 7000;
 // CORS configuration
 const corsOptions = {
   origin: process.env.FRONTEND_URL || 'http://localhost:3000',
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
-  optionsSuccessStatus: 200
 };
 
 // Middleware
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -69,7 +65,7 @@ const startServer = async () => {
     // Start server
     app.listen(PORT, () => {
       console.log(`Server running on port ${PORT}`);
-      console.log(`Allowing CORS for origin: ${corsOptions.origin}`);
+      console.log(`Allowing CORS for origin: All `);
     });
   } catch (error) {
     console.error('Failed to start server:', error);
