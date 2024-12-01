@@ -36,6 +36,10 @@ app.post('/api/cron/start', (req, res) => {
   }
 });
 
+app.get('/', (req,res) => {
+  res.json("API is live")
+})
+
 app.post('/api/cron/stop', (req,res)=>{
   const success = transactionGenerator.stop();
   if(success){
